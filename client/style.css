@@ -1,38 +1,96 @@
+/* style.css */
+
+/* Reset styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body style */
 body {
-  font-family: Arial, sans-serif;
-  margin: 20px;
-  background-color: #f0f0f0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(to right, #6a11cb, #2575fc);
+  color: #fff;
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
-h1,
-h2 {
-  color: #333;
-}
-
-form {
+/* Header styles */
+h1 {
+  font-size: 48px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
   margin-bottom: 20px;
+  animation: fadeInDown 1s ease both;
 }
 
-input {
-  margin: 10px;
-  padding: 8px;
-  width: 200px;
+/* Paragraph style */
+p {
+  font-size: 24px;
+  margin-bottom: 30px;
+  animation: fadeInUp 1s ease both;
 }
 
-button {
-  padding: 8px 16px;
-  background-color: #007bff;
-  color: white;
-  border: none;
-  cursor: pointer;
+/* Navigation styles */
+ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  animation: fadeIn 1s ease both;
 }
 
-#commentsSection {
-  background-color: white;
-  padding: 20px;
-  border-radius: 5px;
+ul li {
+  margin: 0;
 }
 
-#comments div {
-  margin-top: 10px;
+ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 20px;
+  padding: 12px 24px;
+  border: 2px solid #fff;
+  border-radius: 50px;
+  transition: background 0.3s, color 0.3s;
+}
+
+ul li a:hover {
+  background: #fff;
+  color: #6a11cb;
+}
+
+/* Animations */
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }

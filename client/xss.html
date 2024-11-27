@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>XSS Demonstration</title>
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <h1>Cross-Site Scripting (XSS) Demonstration</h1>
+    <form id="commentForm" onsubmit="event.preventDefault();">
+      <input type="text" id="comment" placeholder="Enter your comment" />
+      <button type="button" onclick="postComment()">Submit</button>
+    </form>
+    <div id="commentsSection">
+      <h3>Comments:</h3>
+      <div id="comments"></div>
+    </div>
+    <script src="/script.js"></script>
+  </body>
+</html>

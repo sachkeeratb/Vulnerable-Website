@@ -1,16 +1,30 @@
 const express = require("express");
-const bodyParser = require("body-parser");
 const db = require("./db");
 const path = require("path");
 const app = express();
 
-// Use bodyParser to parse form data
-app.use(bodyParser.urlencoded({ extended: true }));
+// Use express to parse form data
+app.use(express.urlencoded({ extended: true }));
 
-// Serve static files from frontend folder
-app.use(express.static(path.join(__dirname, "../frontend")));
+// Serve static files from client folder
+app.use(express.static(path.join(__dirname, "../client")));
 
-// SQL Injection Vulnerable Login Route
+// Route for the homepage
+app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, "../client/index.html"));
+});
+
+// Route for SQL Injection page
+app.get("/sql-injection", (req, res) => {
+  res.sendFile(path.join(__dirname, "../client/sql-injection.html"));
+});
+
+// Route for XSS page
+app.get("/xss", (req, res) => {
+  res.sendFile(path.join(__dirname, "../client/xss.html"));
+});
+
+// SQL Injection
 app.post("/login", (req, res) => {
   const { username, password } = req.body;
 
@@ -40,12 +54,8 @@ Password: ' OR 1=1 --
 
 */
 
-// Serve index.html as the homepage
-app.get("/", (res) => {
-  res.sendFile(path.join(__dirname, "../client/index.html"));
-});
-
 // Start the server
-app.listen(3000, () => {
-  console.log("Server running on http://localhost:3000");
+const port = process.env.PORT || 3000;
+app.listen(port, () => {
+  console.log(`Server running on port ${port}`);
 });
