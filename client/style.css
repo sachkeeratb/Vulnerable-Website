@@ -1,0 +1,38 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 20px;
+  background-color: #f0f0f0;
+}
+
+h1,
+h2 {
+  color: #333;
+}
+
+form {
+  margin-bottom: 20px;
+}
+
+input {
+  margin: 10px;
+  padding: 8px;
+  width: 200px;
+}
+
+button {
+  padding: 8px 16px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+#commentsSection {
+  background-color: white;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+#comments div {
+  margin-top: 10px;
+}
