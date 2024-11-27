@@ -15,6 +15,36 @@
     <div id="tasks-container"></div>
     <div id="idor-page-identifier" style="display: none"></div>
     <audio id="coinSound" src="/coin.mp3" preload="auto"></audio>
+    <audio id="loseSound" src="/lose.mp3" preload="auto"></audio>
+    <div id="taskModal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Task Completed</h2>
+        <p id="taskExplanation">
+          <strong>Insecure Direct Object References (IDOR)</strong> is a
+          security vulnerability that occurs when an application provides direct
+          access to objects based on user-supplied input without proper
+          authorization checks. <br /><br />
+          <strong>Why It's Dangerous:</strong> IDOR can allow attackers to
+          access or modify data they are not authorized to, such as viewing or
+          editing another user's information. <br /><br />
+          <strong>How to Protect Your Application:</strong>
+          <br />
+          <strong>Implement Access Controls:</strong> Ensure that proper access
+          controls are in place to verify that users have permission to access
+          or modify the requested data.
+          <br />
+          <strong>Use Indirect References:</strong> Instead of exposing direct
+          object references, use indirect references such as unique tokens or
+          IDs that map to the actual objects. <br /><br />
+          <strong>Relation to C:</strong> In C programming, ensuring that
+          pointers and references are valid and point to authorized memory
+          locations is crucial. Similarly, implementing access controls and
+          using indirect references in web applications ensures that data access
+          is secure and authorized.
+        </p>
+      </div>
+    </div>
     <script src="/script.js"></script>
   </body>
 </html>

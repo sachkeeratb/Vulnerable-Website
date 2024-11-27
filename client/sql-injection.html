@@ -17,6 +17,51 @@
     <div id="sql-injection-page-identifier" style="display: none"></div>
     <audio id="coinSound" src="/coin.mp3" preload="auto"></audio>
     <audio id="loseSound" src="/lose.mp3" preload="auto"></audio>
+    <div id="taskModal" class="modal">
+      <div class="modal-content" style="margin-top: 5%">
+        <span class="close">&times;</span>
+        <h2>Task Completed</h2>
+        <p id="taskExplanation">
+          <strong>SQL Injection</strong> is a critical security vulnerability
+          where attackers inject malicious SQL code into queries, compromising a
+          website's database. This can result in unauthorized access to
+          sensitive data, data modification, or even data deletion.
+
+          <br /><br />
+
+          <strong>Why It's Dangerous:</strong> SQL Injection allows attackers to
+          bypass authentication, retrieve confidential information, modify or
+          delete data, and in some cases, gain full control over the database
+          server.
+
+          <br /><br />
+
+          <strong>How to Protect Your Application:</strong>
+          <br />
+          <strong>Use Prepared Statements:</strong> Always use prepared
+          statements with parameterized queries to ensure that user input is
+          treated as data, not as executable code.
+          <br />
+          <strong>Validate and Sanitize Input:</strong> Ensure all user inputs
+          are validated against expected formats and properly sanitized to
+          remove any harmful code or characters.
+          <br />
+          <strong>Use Least Privilege for Database Access:</strong> Limit
+          database privileges for application users to minimize the impact of a
+          potential SQL injection attack.
+
+          <br /><br />
+
+          <strong>How This Relates to C Programming:</strong> Just like in C,
+          where <code>buffer overflow</code> vulnerabilities can occur when
+          functions like <code>gets()</code> or <code>strcpy()</code> don't
+          check the size of the input, SQL Injection happens when user input
+          isn't properly validated. In both cases, the failure to handle input
+          safely can lead to serious security risks.
+        </p>
+      </div>
+    </div>
+
     <script src="/script.js"></script>
   </body>
 </html>

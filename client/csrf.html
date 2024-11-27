@@ -15,6 +15,33 @@
     <div id="tasks-container"></div>
     <div id="csrf-page-identifier" style="display: none"></div>
     <audio id="coinSound" src="/coin.mp3" preload="auto"></audio>
+    <audio id="loseSound" src="/lose.mp3" preload="auto"></audio>
+    <div id="taskModal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Task Completed</h2>
+        <p id="taskExplanation">
+          <strong>Cross-Site Request Forgery (CSRF)</strong> is a security
+          vulnerability that tricks a user into performing actions they did not
+          intend to by exploiting their authenticated session. <br /><br />
+          <strong>Why It's Dangerous:</strong> CSRF can force users to perform
+          actions like transferring funds, changing account details, or making
+          purchases without their consent. <br /><br />
+          <strong>How to Protect Your Application:</strong>
+          <br />
+          <strong>Use Anti-CSRF Tokens:</strong> Include unique tokens in forms
+          and verify them on the server side.
+          <br />
+          <strong>Validate Referer Header:</strong> Check the referer header to
+          ensure requests are coming from trusted sources. <br /><br />
+          <strong>Relation to C:</strong> In C programming, if someone had a
+          pointer to your identity (e.g., a pointer to a sensitive data
+          structure), they could potentially manipulate or access your data
+          without your consent. Similarly, CSRF allows attackers to perform
+          actions on behalf of a user without their knowledge.
+        </p>
+      </div>
+    </div>
     <script src="/script.js"></script>
   </body>
 </html>

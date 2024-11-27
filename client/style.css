@@ -108,6 +108,7 @@ ul li a:hover {
   color: #6a11cb;
 }
 
+/* Tasks styles */
 .tasks-list {
   position: absolute;
   top: 10px;
@@ -125,6 +126,66 @@ ul li a:hover {
 
 .tasks-list li {
   align-items: center;
+}
+
+/* Modal styles */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: rgba(0, 0, 0, 0.9);
+}
+
+.modal-content {
+  background-color: rgba(255, 255, 255, 0.1);
+  margin: 10% auto;
+  padding: 20px;
+  border-radius: 10px;
+  border: 2px solid #fff;
+  width: 80%;
+  color: #fff;
+  animation: fadeIn 0.5s ease both;
+}
+
+.close {
+  color: #fff;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #6a11cb;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Style for the redirect link */
+.redirect-link {
+  display: inline-block;
+  padding: 10px 20px;
+  margin: 20px 0;
+  background-color: #6a11cb;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 9px;
+  font-size: 18px;
+  font-weight: 600;
+  transition: background-color 0.3s, color 0.3s, opacity 0.3s;
+  outline: 2px solid rgba(255, 255, 255, 0.5);
+  opacity: 0.9;
+}
+
+.redirect-link:hover {
+  background-color: #2575fc;
+  color: #fff;
+  opacity: 1;
 }
 
 /* Animations */

@@ -60,6 +60,25 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  function showModal() {
+    const modal = document.getElementById("taskModal");
+    const span = document.getElementsByClassName("close")[0];
+
+    modal.style.display = "block";
+
+    span.onclick = function () {
+      modal.style.display = "none";
+      window.location.href = "/";
+    };
+
+    window.onclick = function (event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+        window.location.href = "/";
+      }
+    };
+  }
+
   // Handle login form submission
   const loginForm = document.getElementById("loginForm");
   if (loginForm && document.getElementById("sql-injection-page-identifier"))
@@ -99,8 +118,7 @@ document.addEventListener("DOMContentLoaded", () => {
             // Update local storage
             localStorage.setItem("task1-complete", "true");
 
-            // Redirect to homepage
-            window.location.href = "/";
+            showModal();
           } else {
             // Play the losing sound
             const loseSound = document.getElementById("loseSound");
@@ -136,6 +154,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
       // Call the original alert function
       originalAlert(message);
+
+      showModal();
     };
   }
 
@@ -173,7 +193,7 @@ document.addEventListener("DOMContentLoaded", () => {
             coinSound.play();
             alert(`Task completed; $${result.transferred} transferred!`);
             localStorage.setItem("task3-complete", "true");
-            window.location.href = "/";
+            showModal();
           }
 
           // Otherwise, no authorization
@@ -208,7 +228,12 @@ document.addEventListener("DOMContentLoaded", () => {
         const taskStatus = document.getElementById("task4-status");
         taskStatus.textContent = "✔";
         taskStatus.style.color = "green";
+
+        showModal();
       } else {
+        // Play the losing sound
+        const loseSound = document.getElementById("loseSound");
+        loseSound.play();
         alert(
           "Failed to open the link in a new tab. Please allow pop-ups for this site."
         );
@@ -235,12 +260,15 @@ document.addEventListener("DOMContentLoaded", () => {
           const coinSound = document.getElementById("coinSound");
           coinSound.play();
           alert(
-            `Task completed; User's information is ${result.username} and ${result.password}`
+            `Task completed; User's username is ${result.username} and password is ${result.password}`
           );
           localStorage.setItem("task5-complete", "true");
-          window.location.href = "/";
+
+          showModal();
         })
         .catch((error) => {
+          const loseSound = document.getElementById("loseSound");
+          loseSound.play();
           alert("Either an error occured or the user is not found... Or both!");
           console.error("Error:", error);
         });

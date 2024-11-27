@@ -10,11 +10,39 @@
     <h1>Open Redirect Demonstration</h1>
     <a
       href="/redirect?url=https://www.youtube.com/watch?v=7KqysheU_SM&list=PLrVxQwkfAdPRFMo5kfpCG8lGiPopPR3sA"
+      class="redirect-link"
       >Click here to be redirected</a
     >
     <div id="tasks-container"></div>
     <div id="open-redirect-page-identifier" style="display: none"></div>
     <audio id="coinSound" src="/coin.mp3" preload="auto"></audio>
+    <audio id="loseSound" src="/lose.mp3" preload="auto"></audio>
+    <div id="taskModal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Task Completed</h2>
+        <p id="taskExplanation">
+          <strong>Open Redirect</strong> is a security vulnerability that occurs
+          when an application redirects users to an untrusted URL based on user
+          input. This can lead to phishing attacks or other malicious
+          activities. <br /><br />
+          <strong>Why It's Dangerous:</strong> Open Redirects can be exploited
+          to trick users into visiting malicious sites, potentially leading to
+          credential theft or malware installation. <br /><br />
+          <strong>How to Protect Your Application:</strong>
+          <br />
+          <strong>Validate URLs:</strong> Ensure that redirects only go to
+          trusted URLs.
+          <br />
+          <strong>Use a Whitelist:</strong> Implement a whitelist of allowed
+          URLs for redirection. <br /><br />
+          <strong>Relation to C:</strong> In C programming, ensuring that
+          pointers and references are valid and point to trusted memory
+          locations is crucial. Similarly, validating URLs in web applications
+          ensures that redirects are safe and trusted.
+        </p>
+      </div>
+    </div>
     <script src="/script.js"></script>
   </body>
 </html>

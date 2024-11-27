@@ -19,6 +19,33 @@
     <div id="tasks-container"></div>
     <div id="xss-page-identifier" style="display: none"></div>
     <audio id="coinSound" src="/coin.mp3" preload="auto"></audio>
+    <audio id="loseSound" src="/lose.mp3" preload="auto"></audio>
+    <div id="taskModal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Task Completed</h2>
+        <p id="taskExplanation">
+          Cross-Site Scripting (XSS) is a security vulnerability that allows
+          attackers to inject malicious scripts into web pages viewed by other
+          users. These scripts can steal information, manipulate web content, or
+          perform actions on behalf of the user.
+          <br /><br />
+          <strong>How to Prevent XSS:</strong>
+          <br />
+          <strong>Sanitize Input:</strong> Always sanitize user input to remove
+          or escape harmful characters.
+          <br />
+          <strong>Use Output Encoding:</strong> Encode data before displaying it
+          in the browser.
+          <br />
+          <strong>Content Security Policy (CSP):</strong> Implement CSP to
+          restrict the sources from which scripts can be loaded. <br /><br />
+          <strong>Relation to C:</strong> In C programming, functions like
+          <code>gets()</code> are insecure because they do not validate input
+          length. Always validate inputs to prevent vulnerabilities.
+        </p>
+      </div>
+    </div>
     <script src="/script.js"></script>
   </body>
 </html>
