@@ -26,9 +26,11 @@ This project consists of a **frontend** built using HTML, CSS, and JavaScript, w
   - **JavaScript**: Used for handling requests and manipulating the DOM.
 
 - **Backend**:
+
   - **Node.js**: JavaScript runtime to create the server and handle HTTP requests.
   - **Express.js**: Web framework for Node.js to simplify routing and handling HTTP requests.
   - **SQLite**: Lightweight SQL database to store user data (like usernames and passwords).
+
 - **Tools**:
   - **Postman** or **Browser**: Used to test and interact with the application.
 
@@ -43,6 +45,18 @@ How user input is directly used in SQL queries without validation or sanitizatio
 ### 2. **Cross-Site Scripting (XSS)**
 
 An attacker can inject malicious scripts into web pages viewed by other users, potentially leading to session hijacking, defacement, or redirection to malicious sites.
+
+### 3. **Cross-Site Request Forgery (CSRF)**
+
+An attacker tricks a user into submitting a request that they did not intend to using their cookie, potentially performing actions on behalf of the user without their consent.
+
+### 4. **Open Redirect**
+
+An attacker can redirect users to a malicious site by manipulating a URL parameter, potentially leading to phishing attacks or other malicious activities.
+
+### 5. **Insecure Direct Object References (IDOR)**
+
+An attacker can access or modify data they are not authorized to by manipulating input parameters, such as accessing another user's information by changing a user ID in the URL.
 
 ---
 
@@ -70,4 +84,4 @@ To set up the project locally, follow these steps:
   node server.js
 ```
 
-Now, you can access the website and start exploring.
+Now, you can access the website on the default of http://localhost:3000 and start exploring.

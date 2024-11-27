@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>IDOR Demonstration</title>
+    <link rel="stylesheet" href="/style.css" />
+    <link rel="icon" type="image/x-icon" href="/favicon.png" />
+  </head>
+  <body>
+    <h1>Insecure Direct Object References (IDOR) Demonstration</h1>
+    <form id="idorForm" action="/user" method="GET">
+      <input type="text" name="userId" placeholder="User ID" required />
+      <button type="submit">Get User Info</button>
+    </form>
+    <div id="tasks-container"></div>
+    <div id="idor-page-identifier" style="display: none"></div>
+    <audio id="coinSound" src="/coin.mp3" preload="auto"></audio>
+    <script src="/script.js"></script>
+  </body>
+</html>

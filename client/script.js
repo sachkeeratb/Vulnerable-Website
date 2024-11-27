@@ -18,8 +18,10 @@ document.addEventListener("DOMContentLoaded", () => {
   fetch("/tasks.html")
     .then((response) => response.text())
     .then((data) => {
-      document.getElementById("tasks-container").innerHTML = data;
-      initializeTasks();
+      if (document.getElementById("tasks-container")) {
+        document.getElementById("tasks-container").innerHTML = data;
+        initializeTasks();
+      }
     });
 
   // Initialize tasks
@@ -28,6 +30,9 @@ document.addEventListener("DOMContentLoaded", () => {
       { id: "task1", key: "task1-complete" },
       { id: "task2", key: "task2-complete" },
       { id: "task3", key: "task3-complete" },
+      { id: "task4", key: "task4-complete" },
+      { id: "task5", key: "task5-complete" },
+      { id: "task6", key: "task6-complete" },
     ];
 
     tasks.forEach((task) => {
@@ -86,6 +91,8 @@ document.addEventListener("DOMContentLoaded", () => {
             const coinSound = document.getElementById("coinSound");
             coinSound.play();
 
+            document.cookie = `username=${result.username}`;
+
             // Show popup
             alert(`Task completed, ${result.username}!`);
 
@@ -130,5 +137,113 @@ document.addEventListener("DOMContentLoaded", () => {
       // Call the original alert function
       originalAlert(message);
     };
+  }
+
+  // Handle CSRF form submission
+  const csrfForm = document.getElementById("csrfForm");
+  if (csrfForm) {
+    csrfForm.addEventListener("submit", (event) => {
+      event.preventDefault();
+
+      const formData = new FormData(csrfForm);
+      const data = {};
+      formData.forEach((value, key) => {
+        data[key] = value;
+      });
+
+      const username = document.cookie
+        .split("; ")
+        .find((row) => row.startsWith("username="))
+        ?.split("=")[1];
+
+      fetch("/transfer", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Cookie: `username=${username}`,
+        },
+        body: JSON.stringify(data),
+      })
+        .then((response) => response.json())
+
+        // If they have the user's token, it is successful
+        .then((result) => {
+          if (result.success) {
+            const coinSound = document.getElementById("coinSound");
+            coinSound.play();
+            alert(`Task completed; $${result.transferred} transferred!`);
+            localStorage.setItem("task3-complete", "true");
+            window.location.href = "/";
+          }
+
+          // Otherwise, no authorization
+          else alert("You are not authorized to perform this action.");
+        })
+        .catch((error) => {
+          console.error("Error:", error);
+        });
+    });
+  }
+
+  // Handle Open Redirect
+  if (document.getElementById("open-redirect-page-identifier")) {
+    const redirectLink = document.querySelector("a[href^='/redirect']");
+    redirectLink.addEventListener("click", (event) => {
+      event.preventDefault();
+      const url = redirectLink.href;
+
+      // Open the URL in a new tab
+      const newTab = window.open(url, "_blank");
+
+      // Check if the new tab was opened successfully
+      if (newTab) {
+        // Play coin sound
+        const coinSound = document.getElementById("coinSound");
+        coinSound.play();
+
+        // Update local storage
+        localStorage.setItem("task4-complete", "true");
+
+        // Update task status
+        const taskStatus = document.getElementById("task4-status");
+        taskStatus.textContent = "✔";
+        taskStatus.style.color = "green";
+      } else {
+        alert(
+          "Failed to open the link in a new tab. Please allow pop-ups for this site."
+        );
+      }
+    });
+  }
+
+  // Handle IDOR form submission
+  const idorForm = document.getElementById("idorForm");
+  if (idorForm) {
+    idorForm.addEventListener("submit", (event) => {
+      event.preventDefault();
+
+      const formData = new FormData(idorForm);
+      const data = {};
+      formData.forEach((value, key) => {
+        data[key] = value;
+      });
+
+      // Send request to fetch user data
+      fetch(`/user?userId=${data.userId}`)
+        .then((response) => response.json())
+        .then((result) => {
+          const coinSound = document.getElementById("coinSound");
+          coinSound.play();
+          alert(
+            `Task completed; User's information is ${result.username} and ${result.password}`
+          );
+          localStorage.setItem("task5-complete", "true");
+          window.location.href = "/";
+        })
+        .catch((error) => {
+          alert("Either an error occured or the user is not found... Or both!");
+          console.error("Error:", error);
+        });
+    });
   }
 });

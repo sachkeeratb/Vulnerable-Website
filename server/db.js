@@ -12,6 +12,7 @@ db.serialize(() => {
     "INSERT INTO users (username, password) VALUES ('admin', 'password123')"
   );
   db.run("INSERT INTO users (username, password) VALUES ('user', 'userpass')");
+  db.run("INSERT INTO users (username, password) VALUES ('john', 'smith')");
 });
 
 module.exports = db;
