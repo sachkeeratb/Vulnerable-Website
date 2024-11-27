@@ -4,13 +4,32 @@
     <meta charset="UTF-8" />
     <title>SQL Injection Demonstration</title>
     <link rel="stylesheet" href="/style.css" />
+    <link rel="icon" type="image/x-icon" href="/favicon.png" />
   </head>
   <body>
     <h1>SQL Injection Demonstration</h1>
-    <form action="http://localhost:3000/login" method="POST">
+    <form id="loginForm">
       <input type="text" name="username" placeholder="Username" required />
       <input type="password" name="password" placeholder="Password" required />
       <button type="submit">Login</button>
     </form>
+    <div id="tasks-container"></div>
+    <div id="sql-injection-page-identifier" style="display: none"></div>
+    <audio id="coinSound" src="/coin.mp3" preload="auto"></audio>
+    <audio id="loseSound" src="/lose.mp3" preload="auto"></audio>
+    <script src="/script.js"></script>
   </body>
 </html>
+
+<!-- /* 
+SQL Injection examples
+
+Logs in as the admin in the database, bypassing authentication
+Username: admin' --
+Password: anything
+
+Logs in as the first user in the database (admin)
+Username: anything
+Password: ' OR 1=1 --
+
+*/ -->

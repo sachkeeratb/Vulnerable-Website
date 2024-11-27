@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <title>XSS Demonstration</title>
     <link rel="stylesheet" href="/style.css" />
+    <link rel="icon" type="image/x-icon" href="/favicon.png" />
   </head>
   <body>
     <h1>Cross-Site Scripting (XSS) Demonstration</h1>
@@ -15,6 +16,18 @@
       <h3>Comments:</h3>
       <div id="comments"></div>
     </div>
+    <div id="tasks-container"></div>
+    <div id="xss-page-identifier" style="display: none"></div>
+    <audio id="coinSound" src="/coin.mp3" preload="auto"></audio>
     <script src="/script.js"></script>
   </body>
 </html>
+
+<!-- /* 
+XSS example inputs
+
+<img src="x" onError="alert('XSS Attack!')"> Broken image sending an alert
+<a href="javascript:alert('XSS')">Click me</a> Link sending an alert on click
+<script>alert("XSS attack!");</script> Sends an alert (may not work on some browers)
+
+*/ -->

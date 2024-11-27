@@ -1,6 +1,3 @@
-/* style.css */
-
-/* Reset styles */
 * {
   margin: 0;
   padding: 0;
@@ -36,6 +33,54 @@ p {
   animation: fadeInUp 1s ease both;
 }
 
+/* Form styles */
+form {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  animation: fadeIn 1s ease both;
+}
+
+form input {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 2px solid #fff;
+  border-radius: 5px;
+  background: rgba(255, 255, 255, 0.2);
+  color: #6a11cb;
+  font-size: 16px;
+  transition: background 0.3s, border-color 0.3s;
+}
+
+form input::placeholder {
+  color: rgba(255, 255, 255, 0.7); /* Off white color for placeholder text */
+}
+
+form input:focus {
+  background: rgba(255, 255, 255, 0.3);
+  border-color: #6a11cb;
+  outline: none;
+}
+
+form button {
+  width: 100%;
+  padding: 10px;
+  background: #5a67d8;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background 0.3s;
+}
+
+form button:hover {
+  background: #434190;
+}
+
 /* Navigation styles */
 ul {
   list-style: none;
@@ -61,6 +106,25 @@ ul li a {
 ul li a:hover {
   background: #fff;
   color: #6a11cb;
+}
+
+.tasks-list {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 10px;
+  border-radius: 5px;
+  list-style: none;
+  color: #fff;
+  font-size: 16px;
+  animation: fadeIn 1s ease both;
+  display: block;
+  float: left;
+}
+
+.tasks-list li {
+  align-items: center;
 }
 
 /* Animations */

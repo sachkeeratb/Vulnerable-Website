@@ -4,6 +4,7 @@ const path = require("path");
 const app = express();
 
 // Use express to parse form data
+app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // Serve static files from client folder
@@ -14,12 +15,12 @@ app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "../client/index.html"));
 });
 
-// Route for SQL Injection page
+// Route for the SQL Injection page
 app.get("/sql-injection", (req, res) => {
   res.sendFile(path.join(__dirname, "../client/sql-injection.html"));
 });
 
-// Route for XSS page
+// Route for the XSS page
 app.get("/xss", (req, res) => {
   res.sendFile(path.join(__dirname, "../client/xss.html"));
 });
@@ -37,22 +38,10 @@ app.post("/login", (req, res) => {
     if (err) {
       console.error("SQL error:", err); // Log the exact error
       res.status(500).send("Internal server error");
-    } else if (row) res.send(`Welcome, ${row.username}!`);
-    else res.send("Invalid credentials");
+    } else if (row) res.json({ success: true, username: row.username });
+    else res.json({ success: false });
   });
 });
-
-/* SQL Injection examples
-
-Logs in as the admin in the database, bypassing authentication
-Username: admin' --
-Password: anything
-
-Logs in as the first user in the database (admin)
-Username: anything
-Password: ' OR 1=1 --
-
-*/
 
 // Start the server
 const port = process.env.PORT || 3000;
