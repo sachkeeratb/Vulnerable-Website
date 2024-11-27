@@ -77,10 +77,10 @@ To set up the project locally, follow these steps:
   python3 -m http.server
 ```
 
-3. **Navigate to the server directory and start the backend server**:
+3. **Navigate to the server directory and start the backend server in another terminal**:
 
 ```sh
-  cd ../server
+  cd Vunerable-Website/client
   node server.js
 ```
 
