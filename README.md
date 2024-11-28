@@ -77,10 +77,11 @@ Before you set up the project locally, install [Python](https://www.python.org/d
   python3 -m http.server
 ```
 
-3. **Navigate to the server directory and start the backend server in another terminal**:
+3. **In another terminal, navigate to the server directory, install the packages, and start the backend server**:
 
 ```sh
   cd Vunerable-Website/client
+  npm install
   node server.js
 ```
 
