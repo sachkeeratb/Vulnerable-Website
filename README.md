@@ -62,7 +62,7 @@ An attacker can access or modify data they are not authorized to by manipulating
 
 ## Setup
 
-To set up the project locally, follow these steps:
+Before you set up the project locally, install [Python](https://www.python.org/downloads/) and [NodeJS](https://nodejs.org/en/download/prebuilt-installer).
 
 1. **Clone the repository**:
 
