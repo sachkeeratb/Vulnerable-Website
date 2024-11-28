@@ -67,20 +67,20 @@ Before you set up the project locally, install [Python](https://www.python.org/d
 1. **Clone the repository**:
 
 ```sh
-  git clone https://github.com/sachkeeratb/Vunerable-Website.git
+  git clone https://github.com/sachkeeratb/Vulnerable-Website.git
 ```
 
 2. **Navigate to the client directory and start the frontend server**:
 
 ```sh
-  cd Vunerable-Website/client
+  cd Vulnerable-Website/client
   python3 -m http.server
 ```
 
 3. **In another terminal, navigate to the server directory, install the packages, and start the backend server**:
 
 ```sh
-  cd Vunerable-Website/client
+  cd Vulnerable-Website/client
   npm install
   node server.js
 ```
